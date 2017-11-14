@@ -198,7 +198,7 @@ class packetbeat(
   Enum['enabled', 'disabled', 'running', 'unmanaged'] $service_ensure = 'enabled',
   Boolean $service_has_restart                                        = true,
   Integer $snaplen                                                    = 65535,
-  Enum['pcap', 'af_packet', 'pf_ring'] $sniff_type                    = 'pcap',
+  Enum['pcap', 'af_packet'] $sniff_type                               = 'pcap',
   Optional[Array[String]] $tags                                       = undef,
   Optional[Boolean] $with_vlans                                       = undef,
 ) {
