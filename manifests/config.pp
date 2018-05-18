@@ -10,7 +10,7 @@ class packetbeat::config inherits packetbeat {
     default => '/usr/share/packetbeat/bin/packetbeat -N -configtest -c %',
   }
   if $packetbeat::major_version == '5' {
-    $packetbeat_config = delete_undef_values({
+    $packetbeat_config_base = delete_undef_values({
       'name'              => $packetbeat::beat_name,
       'fields'            => $packetbeat::fields,
       'fields_under_root' => $packetbeat::fields_under_root,
@@ -35,7 +35,7 @@ class packetbeat::config inherits packetbeat {
     })
   }
   else {
-    $packetbeat_config = delete_undef_values({
+    $packetbeat_config_base = delete_undef_values({
       'name'              => $packetbeat::beat_name,
       'fields'            => $packetbeat::fields,
       'fields_under_root' => $packetbeat::fields_under_root,
@@ -71,7 +71,10 @@ class packetbeat::config inherits packetbeat {
       },
     })
 
-    $packetbeat_config = merge($packetbeat_config, $af_packet_config)
+    $packetbeat_config = deep_merge($packetbeat_config_base, $af_packet_config)
+  }
+  else {
+    $packetbeat_config = $packetbeat_config_base
   }
 
   file{'packetbeat.yml':
