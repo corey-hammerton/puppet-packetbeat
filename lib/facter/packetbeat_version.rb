@@ -7,6 +7,6 @@ Facter.add('packetbeat_version') do
       '/usr/share/packetbeat/bin/packetbeat -version',
     )
 
-    %r{^packetbeat version ([0-9.]+)}.match(packetbeat_version)[1]
+    %r{^packetbeat version ([0-9.]+)}.match(packetbeat_version)[1] unless packetbeat_version.nil?
   end
 end
