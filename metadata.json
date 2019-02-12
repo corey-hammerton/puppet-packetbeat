@@ -7,13 +7,20 @@
   "source": "https://github.com/corey-hammerton/puppet-packetbeat",
   "project_page": "https://github.com/corey-hammerton/puppet-packetbeat",
   "issues_url": "https://github.com/corey-hammerton/puppet-packetbeat/issues",
-  "tags": ["packetbeat", "elasticsearch", "logstash", "elastic"],
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 4.13.0 < 5.0.0"},
-    {"name":"puppetlabs-apt","version_requirement":">= 2.0.0 < 3.0.0"},
-    {"name":"darin-zypprepo","version_requirement":">= 1.0.0 < 2.0.0"}
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 4.13.0 < 5.0.0"
+    },
+    {
+      "name": "puppetlabs-apt",
+      "version_requirement": ">= 2.0.0 < 3.0.0"
+    },
+    {
+      "name": "darin-zypprepo",
+      "version_requirement": ">= 1.0.0 < 2.0.0"
+    }
   ],
-  "data_provider": null,
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
@@ -87,6 +94,14 @@
       "name": "puppet",
       "version_requirement": ">=4.0.0 <6.0.0"
     }
-  ]
+  ],
+  "tags": [
+    "packetbeat",
+    "elasticsearch",
+    "logstash",
+    "elastic"
+  ],
+  "pdk-version": "1.9.0",
+  "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git",
+  "template-ref": "1.9.0-0-g7281db5"
 }
-
