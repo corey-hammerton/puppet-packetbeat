@@ -24,6 +24,10 @@ class packetbeat::repo inherits packetbeat {
             source => 'https://artifacts.elastic.co/GPG-KEY-elasticsearch',
           },
         }
+
+        if $packetbeat::ensure == 'present' {
+          Class['apt::update'] -> Package['packetbeat']
+        }
       }
     }
     'Redhat': {
